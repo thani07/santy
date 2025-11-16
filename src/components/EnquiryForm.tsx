@@ -40,7 +40,7 @@ const EnquiryForm = () => {
   };
 
   return (
-    <section id="enquiry" className="py-20 bg-background">
+    <section id="enquiry" className="py-20 bg-muted/30">
       <div className="container px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
