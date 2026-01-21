@@ -1,73 +1,66 @@
-# Welcome to your Lovable project
+# Santy.Fit - Elite Personal Training & Transformation
 
-## Project info
+This project is a responsive landing page for Santy.Fit, a fictional elite personal training business. It's designed to attract clients by showcasing transformations, programs, and testimonials.
 
-**URL**: https://lovable.dev/projects/f37336ec-ffbe-4fbd-a6a7-eb33888471f2
+cd santy-fit
 
-## How can I edit this code?
+## Tech Stack
 
-There are several ways of editing your application.
+This project is built with modern web technologies, including:
 
-**Use Lovable**
+- **Vite:** A next-generation frontend build tool.
+- **React:** A JavaScript library for building user interfaces.
+- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+- **shadcn/ui:** A collection of re-usable UI components.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f37336ec-ffbe-4fbd-a6a7-eb33888471f2) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+To get a local copy up and running, follow these simple steps.
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+You'll need to have [Node.js](https://nodejs.org/en/) (version 18 or later) and a package manager like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) installed.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation & Setup
 
-Follow these steps:
+1.  **Clone the repository:**
+    ```sh
+    git clone <YOUR_GIT_URL>
+    ```
+
+2.  **Navigate to the project directory:**
+    ```sh
+    cd s-fitness-elite
+    ```
+
+3.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+4.  **Start the development server:**
+    ```sh
+    npm run dev
+    ```
+    Your application will be running at `http://localhost:8080`.
+
+## Building for Production
+
+To create a production-ready build of the application, run the following command:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+This will generate a `dist` folder with the optimized and minified assets for your project.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
 
-**Use GitHub Codespaces**
+This project can be deployed to any static site hosting service, such as:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+- [GitHub Pages](https://pages.github.com/)
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f37336ec-ffbe-4fbd-a6a7-eb33888471f2) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Simply connect your repository to one of these services and follow their instructions for deploying a Vite-based React application.

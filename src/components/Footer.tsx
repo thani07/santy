@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter, Mail, Phone } from "lucide-react";
+import { Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -6,7 +6,8 @@ const Footer = () => {
       <div className="container px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-heading text-2xl font-bold text-primary-foreground mb-4">S Fitness</h3>
+<h3 className="font-heading text-2xl font-bold text-primary-foreground mb-4">Santy.Fit</h3>
+© 2025 Santy.Fit. All rights reserved. Transform your body, transform your life.
             <p className="text-primary-foreground/70">
               Elite personal training and transformation programs. Your journey to peak performance starts here.
             </p>
@@ -38,11 +39,15 @@ const Footer = () => {
             <div className="space-y-2 text-primary-foreground/70">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@sfitness.com</span>
+                <span>santy.fit03@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 93614 95774</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Tambaram, Chennai</span>
               </div>
             </div>
             <div className="flex gap-4 mt-4">
@@ -56,16 +61,9 @@ const Footer = () => {
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Facebook"
+                aria-label="YouTube"
               >
-                <Facebook className="h-5 w-5 text-primary-foreground" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5 text-primary-foreground" />
+                <Youtube className="h-5 w-5 text-primary-foreground" />
               </a>
             </div>
           </div>

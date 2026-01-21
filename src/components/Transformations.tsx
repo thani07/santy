@@ -6,53 +6,60 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import clientBefore1 from "@/assets/client-before-1.jpg";
-import clientAfter1 from "@/assets/client-after-1.jpg";
-import clientBefore2 from "@/assets/client-before-2.jpg";
-import clientAfter2 from "@/assets/client-after-2.jpg";
-import clientBefore3 from "@/assets/client-before-3.jpg";
-import clientAfter3 from "@/assets/client-after-3.jpg";
-import clientBefore4 from "@/assets/client-before-4.jpg";
-import clientAfter4 from "@/assets/client-after-4.jpg";
+import transformation1 from "@/assets/sample_9.jpg";
+import transformation2 from "@/assets/sample_10.jpg";
+import transformation3 from "@/assets/sample_11.jpg";
+import transformation4 from "@/assets/photo-output 3.jpg";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const Transformations = () => {
   const transformations = [
     {
-      before: clientBefore1,
-      after: clientAfter1,
-      name: "Mike Johnson",
-      duration: "12 Weeks",
+      image: transformation1,
       results: "Lost 25lbs • Gained Muscle • Increased Energy",
     },
     {
-      before: clientBefore2,
-      after: clientAfter2,
-      name: "David Chen",
-      duration: "16 Weeks",
+      image: transformation4,
       results: "Lost 30lbs • Built Strength • Transformed Lifestyle",
     },
     {
-      before: clientBefore3,
-      after: clientAfter3,
-      name: "James Rodriguez",
-      duration: "20 Weeks",
+      image: transformation3,
       results: "Lost 35lbs • Built Lean Muscle • Improved Confidence",
     },
     {
-      before: clientBefore4,
-      after: clientAfter4,
-      name: "Sarah Williams",
-      duration: "14 Weeks",
+      image: transformation2,
+      results: "Lost 20lbs • Toned Body • Increased Strength",
+    },
+    // Duplicating for smoother loop
+    {
+      image: transformation1,
+      results: "Lost 25lbs • Gained Muscle • Increased Energy",
+    },
+    {
+      image: transformation4,
+      results: "Lost 30lbs • Built Strength • Transformed Lifestyle",
+    },
+    {
+      image: transformation3,
+      results: "Lost 35lbs • Built Lean Muscle • Improved Confidence",
+    },
+    {
+      image: transformation2,
       results: "Lost 20lbs • Toned Body • Increased Strength",
     },
   ];
+
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
 
   return (
     <section id="transformations" className="py-20 bg-background">
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            Real <span className="gradient-accent bg-clip-text text-transparent">Transformations</span>
+            Real Transformations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             These results speak for themselves. Every transformation is backed by dedication, expert guidance,
@@ -65,49 +72,34 @@ const Transformations = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin.current]}
           className="max-w-6xl mx-auto"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {transformations.map((transformation, index) => (
-              <CarouselItem key={index} className="md:basis-1/2">
-                <Card className="overflow-hidden shadow-strong hover:shadow-glow transition-smooth group">
-                  <div className="grid grid-cols-2 gap-0">
-                    <div className="relative">
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="bg-secondary/90 text-secondary-foreground px-3 py-1 rounded-full text-xs font-bold">
-                          BEFORE
-                        </span>
-                      </div>
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <Card className="overflow-hidden shadow-strong hover:shadow-glow transition-smooth group h-full flex flex-col">
+                    <div className="relative w-full aspect-[4/5] overflow-hidden">
                       <img
-                        src={transformation.before}
-                        alt={`${transformation.name} before transformation`}
-                        className="w-full h-full object-cover"
+                        src={transformation.image}
+                        alt={`Transformation ${index + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                     </div>
-                    <div className="relative">
-                      <div className="absolute top-4 right-4 z-10">
-                        <span className="gradient-accent px-3 py-1 rounded-full text-xs font-bold text-accent-foreground">
-                          AFTER
-                        </span>
-                      </div>
-                      <img
-                        src={transformation.after}
-                        alt={`${transformation.name} after transformation`}
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="p-6 bg-card flex-grow flex flex-col justify-center">
+                      <p className="text-sm text-muted-foreground text-center font-medium italic">{transformation.results}</p>
                     </div>
-                  </div>
-                  <div className="p-6 bg-card">
-                    <h3 className="font-heading text-xl font-bold mb-2">{transformation.name}</h3>
-                    <p className="text-sm text-primary mb-2 font-semibold">{transformation.duration}</p>
-                    <p className="text-sm text-muted-foreground">{transformation.results}</p>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious className="hidden md:flex bg-background/20 hover:bg-background/40 text-foreground border-foreground/20" />
+          <CarouselNext className="hidden md:flex bg-background/20 hover:bg-background/40 text-foreground border-foreground/20" />
         </Carousel>
       </div>
     </section>

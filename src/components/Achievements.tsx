@@ -30,7 +30,7 @@ const Achievements = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            Awards & <span className="gradient-accent bg-clip-text text-transparent">Achievements</span>
+            Awards & Achievements
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Recognition and certifications that demonstrate excellence in fitness training and client transformation.

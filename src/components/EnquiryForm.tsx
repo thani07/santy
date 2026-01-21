@@ -17,26 +17,88 @@ const EnquiryForm = () => {
     program: "",
     message: "",
   });
+  const [errors, setErrors] = useState({
+    name: "",
+    phone: "",
+    program: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validate = () => {
+    const newErrors = { name: "", phone: "", program: "" };
+    let isValid = true;
+
+    if (!formData.name) {
+      newErrors.name = "Name is required.";
+      isValid = false;
+    }
+    if (!formData.phone) {
+      newErrors.phone = "Phone number is required.";
+      isValid = false;
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be 10 digits.";
+      isValid = false;
+    }
+    if (!formData.program) {
+      newErrors.program = "Please select a program.";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: "Enquiry Submitted!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours.",
-    });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      program: "",
-      message: "",
-    });
+    if (!validate()) {
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit enquiry');
+      }
+
+      toast({
+        title: "Enquiry Submitted!",
+        description: "Thank you for your interest. We'll get back to you within 24 hours.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        program: "",
+        message: "",
+      });
+      setErrors({ name: "", phone: "", program: "" });
+    } catch (error) {
+      console.error('Error submitting enquiry:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit enquiry. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handlePhoneKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const charCode = e.charCode;
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -45,7 +107,7 @@ const EnquiryForm = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-              Start Your <span className="gradient-accent bg-clip-text text-transparent">Transformation</span>
+              Start Your Transformation
             </h2>
             <p className="text-lg text-muted-foreground">
               Ready to transform your body and life? Fill out the form below and let's discuss your fitness goals.
@@ -59,35 +121,36 @@ const EnquiryForm = () => {
                   <Label htmlFor="name">Full Name *</Label>
                   <Input
                     id="name"
-                    placeholder="John Doe"
                     value={formData.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     required
                   />
+                  {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
+                  <Label htmlFor="email">Email Address</Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    required
                   />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone">Phone Number *</Label>
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+1 (555) 000-0000"
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
+                    onKeyPress={handlePhoneKeyPress}
+                    maxLength={10}
+                    required
                   />
+                  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="program">Program Interest *</Label>
@@ -96,12 +159,16 @@ const EnquiryForm = () => {
                       <SelectValue placeholder="Select a program" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="strength">Strength & Power</SelectItem>
-                      <SelectItem value="hiit">HIIT Elite</SelectItem>
-                      <SelectItem value="transformation">Total Transformation</SelectItem>
-                      <SelectItem value="consultation">Free Consultation</SelectItem>
+                      <SelectItem value="personal_training">Personal Training</SelectItem>
+                      <SelectItem value="90_day_transformation">90 Day Transformation</SelectItem>
+                      <SelectItem value="athletic_physique_build">Athletic Physique Build</SelectItem>
+                      <SelectItem value="surgery_rehabilitation">Surgery Rehabilitation</SelectItem>
+                      <SelectItem value="effective_fat_loss">Effective Fat Loss</SelectItem>
+                      <SelectItem value="muscle_mass_build">Muscle Mass Build</SelectItem>
+                      <SelectItem value="free_consultation">Free Consultation</SelectItem>
                     </SelectContent>
                   </Select>
+                  {errors.program && <p className="text-red-500 text-sm">{errors.program}</p>}
                 </div>
               </div>
 

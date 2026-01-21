@@ -13,16 +13,16 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
       </div>
 
       <div className="container relative z-10 px-4 py-20">
         <div className="max-w-3xl">
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground mb-6 animate-fade-in">
-            TRANSFORM YOUR BODY
+            UNLEASH YOUR STRONGEST SELF
           </h1>
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 font-medium animate-fade-in [animation-delay:200ms]">
-            Elite personal training programs designed for serious results. Join the transformation.
+            Forge your ultimate physique with elite coaching and proven results. Your transformation starts now.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in [animation-delay:400ms]">
             <Button 
@@ -31,7 +31,7 @@ const Hero = () => {
               onClick={scrollToEnquiry}
               className="group"
             >
-              Start Your Journey
+              Claim Your Transformation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
@@ -40,7 +40,7 @@ const Hero = () => {
               className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20"
               onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              View Programs
+              Explore Our Programs
             </Button>
           </div>
         </div>
