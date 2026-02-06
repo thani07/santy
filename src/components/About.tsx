@@ -13,12 +13,6 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 const About = () => {
-  const stats = [
-    { icon: Award, label: "Years Experience", value: "4+" },
-    { icon: Target, label: "Success Rate", value: "98%" },
-    { icon: TrendingUp, label: "Transformations", value: "150+" },
-  ];
-
   const trainerImages = [trainerImage1, trainerImage2, trainerImage3];
 
   const pluginTrainer = useRef(
@@ -73,17 +67,7 @@ const About = () => {
               Beyond fitness, I am also an active model, having proudly represented Chennai and Pondicherry in various model walks.
             </p>
 
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-primary mb-3">
-                    <stat.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <div className="font-heading text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
       </div>

@@ -4,24 +4,24 @@ import { Card } from "@/components/ui/card";
 const Achievements = () => {
   const achievements = [
     {
+      icon: Users,
+      title: "4+ Years Experience",
+      description: "Trainer at YMCA Rock Gym & King Gym",
+    },
+    {
       icon: Trophy,
-      title: "ISSA Certified",
-      description: "International Sports Sciences Association",
+      title: "Certified Trainer",
+      description: "Level 1 Fitness & Nutrition",
     },
     {
       icon: Medal,
-      title: "National Champion",
-      description: "2018 Bodybuilding Competition Winner",
+      title: "Award Winning Physique",
+      description: "Mr. Tamilnadu 1st Place, Mr. Chennai Runner-up, Bronze Medalist Mr. University",
     },
     {
       icon: Users,
-      title: "500+ Clients",
-      description: "Transformed Lives Across the Globe",
-    },
-    {
-      icon: Star,
-      title: "Featured Trainer",
-      description: "Men's Health & Fitness Magazine",
+      title: "150+ Transformations",
+      description: "Clients Achieved Goals",
     },
   ];
 

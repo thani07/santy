@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -86,6 +87,7 @@ const Header = () => {
           >
             Get Started
           </Button>
+          <MobileMenu />
         </div>
       </div>
     </header>
