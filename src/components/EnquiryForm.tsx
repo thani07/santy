@@ -64,7 +64,8 @@ const EnquiryForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit enquiry');
+        const errorText = await response.text();
+        throw new Error(`Failed to submit enquiry: ${errorText}`);
       }
 
       toast({
