@@ -2,8 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { google } from 'googleapis';
 import { Resend } from 'resend';
-import path from 'path';
-import fs from 'fs';
 import dotenv from 'dotenv';
 import serverless from 'serverless-http';
 
@@ -14,29 +12,27 @@ const app = express();
 app.use(bodyParser.json());
 
 // --- Google Sheets Setup ---
-// Note: In a serverless environment, the __dirname might not be reliable.
-// It's better to place the credentials file relative to the function and read it.
-// We assume 'credentials.json' is deployed alongside this function.
-const credentialsPath = path.resolve(__dirname, 'credentials.json');
+const { GOOGLE_SHEET_ID, RESEND_API_KEY, TO_EMAIL_ADDRESS, GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY } = process.env;
+
 let auth;
-try {
-  const credentials = JSON.parse(fs.readFileSync(credentialsPath, 'utf8'));
+if (GOOGLE_CLIENT_EMAIL && GOOGLE_PRIVATE_KEY) {
   auth = new google.auth.GoogleAuth({
-    credentials,
+    credentials: {
+      client_email: GOOGLE_CLIENT_EMAIL,
+      private_key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
-} catch (error) {
-  console.error('Error loading Google Sheets credentials:', error);
-  // In a serverless function, exiting the process is not recommended.
-  // The function will fail and log the error.
+} else {
+    console.error('Google Sheets credentials (GOOGLE_CLIENT_EMAIL, GOOGLE_PRIVATE_KEY) are not set in environment variables.');
 }
 
 const sheets = google.sheets({ version: 'v4', auth });
-const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+const spreadsheetId = GOOGLE_SHEET_ID;
 
 // --- Resend Setup ---
-const resend = new Resend(process.env.RESEND_API_KEY);
-const toEmailAddress = process.env.TO_EMAIL_ADDRESS;
+const resend = new Resend(RESEND_API_KEY);
+const toEmailAddress = TO_EMAIL_ADDRESS;
 const fromEmailAddress = 'onboarding@resend.dev';
 
 // API Endpoint
