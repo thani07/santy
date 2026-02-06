@@ -71,7 +71,7 @@ router.post('/enquiry', async (req, res) => {
 
         // 2. Send Email Notification via Resend
         const emailSubject = `New Enquiry from ${name} for ${program}`;
-        const emailBody = "
+        const emailBody = `
             A new enquiry has been submitted through the website form:
 
             Name: ${name}
@@ -80,7 +80,7 @@ router.post('/enquiry', async (req, res) => {
             Program: ${program}
             Message: ${message || 'N/A'}
             Submitted On: ${timestamp}
-        ";
+        `;
 
         await resend.emails.send({
             from: fromEmailAddress,
