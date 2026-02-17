@@ -14,7 +14,7 @@ export default defineConfig(() => ({
       },
     },
   },
-  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png'],
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png', '**/*.HEIC'],
   plugins: [react()],
   resolve: {
     alias: {

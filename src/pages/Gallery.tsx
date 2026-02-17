@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -77,6 +79,20 @@ const coaches = [
 ];
 
 const Gallery = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 0);
+    }
+  }, [location]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
@@ -116,7 +132,7 @@ const Gallery = () => {
               </div>
             ))}
           </div>
-          <h1 className="text-4xl font-bold mb-8 mt-16 text-center">Coach Gallery</h1>
+          <h1 id="coach-gallery" className="text-4xl font-bold mb-8 mt-16 text-center">Coach Gallery</h1>
           <div className="space-y-12">
             {coaches.map((program) => (
               <div key={program.title}>

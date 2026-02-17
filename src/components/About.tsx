@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import trainerImage1 from "@/assets/Coach1.jpg";
 import trainerImage2 from "@/assets/Coach2.png";
 import trainerImage3 from "@/assets/Coach3.jpg";
+import aboutImage1 from "@/assets/about_1.JPG";
+import aboutImage2 from "@/assets/about_2.JPG";
+import aboutImage3 from "@/assets/about_3.HEIC";
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +18,7 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 const About = () => {
-  const trainerImages = [trainerImage1, trainerImage2, trainerImage3];
+  const trainerImages = [trainerImage1, trainerImage2, trainerImage3, aboutImage1, aboutImage2, aboutImage3];
 
   const pluginTrainer = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
@@ -66,8 +71,11 @@ const About = () => {
             <p className="text-lg text-muted-foreground mb-12">
               Beyond fitness, I am also an active model, having proudly represented Chennai and Pondicherry in various model walks.
             </p>
-
-
+            <div className="flex justify-center">
+              <Link to="/gallery#coach-gallery">
+                <Button variant="hero" size="lg">View Coach Gallery</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
