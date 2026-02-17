@@ -9,7 +9,6 @@ import {
 import transformation1 from "@/assets/sample_9.jpg";
 import transformation2 from "@/assets/sample_10.jpg";
 import transformation3 from "@/assets/sample_11.jpg";
-import transformation4 from "@/assets/photo-output 3.jpg";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
@@ -17,36 +16,28 @@ const Transformations = () => {
   const transformations = [
     {
       image: transformation1,
-      results: "Lost 25lbs • Gained Muscle • Increased Energy",
-    },
-    {
-      image: transformation4,
-      results: "Lost 30lbs • Built Strength • Transformed Lifestyle",
+      results: "Lost 25kgs • Gained Muscle • Increased Energy",
     },
     {
       image: transformation3,
-      results: "Lost 35lbs • Built Lean Muscle • Improved Confidence",
+      results: "Lost 35kgs • Built Lean Muscle • Improved Confidence",
     },
     {
       image: transformation2,
-      results: "Lost 20lbs • Toned Body • Increased Strength",
+      results: "Lost 20kgs • Toned Body • Increased Strength",
     },
     // Duplicating for smoother loop
     {
       image: transformation1,
-      results: "Lost 25lbs • Gained Muscle • Increased Energy",
-    },
-    {
-      image: transformation4,
-      results: "Lost 30lbs • Built Strength • Transformed Lifestyle",
+      results: "Lost 25kgs • Gained Muscle • Increased Energy",
     },
     {
       image: transformation3,
-      results: "Lost 35lbs • Built Lean Muscle • Improved Confidence",
+      results: "Lost 35kgs • Built Lean Muscle • Improved Confidence",
     },
     {
       image: transformation2,
-      results: "Lost 20lbs • Toned Body • Increased Strength",
+      results: "Lost 20kgs • Toned Body • Increased Strength",
     },
   ];
 
@@ -82,7 +73,7 @@ const Transformations = () => {
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
                   <Card className="overflow-hidden shadow-strong hover:shadow-glow transition-smooth group h-full flex flex-col">
-                    <div className="relative w-full aspect-[4/5] overflow-hidden">
+                    <div className="relative w-full overflow-hidden">
                       <img
                         src={transformation.image}
                         alt={`Transformation ${index + 1}`}

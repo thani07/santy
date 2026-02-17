@@ -90,6 +90,8 @@ const Gallery = () => {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 0);
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [location]);
 

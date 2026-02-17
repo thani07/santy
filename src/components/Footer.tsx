@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
@@ -17,19 +18,29 @@ const Footer = () => {
             <h4 className="font-heading text-lg font-bold text-primary-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#programs" className="text-primary-foreground/70 hover:text-primary transition-colors">
+                <Link to="/#about" className="text-primary-foreground/70 hover:text-primary transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/#programs" className="text-primary-foreground/70 hover:text-primary transition-colors">
                   Programs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#transformations" className="text-primary-foreground/70 hover:text-primary transition-colors">
+                <Link to="/#transformations" className="text-primary-foreground/70 hover:text-primary transition-colors">
                   Transformations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#enquiry" className="text-primary-foreground/70 hover:text-primary transition-colors">
-                  Get Started
-                </a>
+                <Link to="/gallery" className="text-primary-foreground/70 hover:text-primary transition-colors">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link to="/#enquiry" className="text-primary-foreground/70 hover:text-primary transition-colors">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
