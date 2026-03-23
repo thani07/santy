@@ -18,7 +18,7 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 
 const About = () => {
-  const trainerImages = [trainerImage1, trainerImage2, trainerImage3, aboutImage1, aboutImage2, aboutImage3];
+  const trainerImages = [trainerImage1, aboutImage3,trainerImage2, trainerImage3];
 
   const pluginTrainer = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })

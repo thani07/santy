@@ -6,8 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import transformation1 from "@/assets/sample_9.jpg";
-import transformation2 from "@/assets/sample_10.jpg";
+import transformation1 from "@/assets/sample_3.jpg";
+import transformation2 from "@/assets/sample_8.jpg";
 import transformation3 from "@/assets/sample_11.jpg";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
