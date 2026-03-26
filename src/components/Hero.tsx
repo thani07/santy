@@ -23,12 +23,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-end md:items-center justify-center overflow-hidden pb-24 md:pb-0">
       {heroImages.map((image, index) => (
         <div
           key={index}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-          style={{ 
+          style={{
             backgroundImage: `url(${image})`,
             opacity: index === currentImageIndex ? 1 : 0
           }}
@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
       ))}
 
-      <div className="container relative z-10 px-4 py-20">
+      <div className="container relative z-10 px-4 pt-20 pb-0 md:py-20">
         <div className="max-w-3xl">
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-primary-foreground mb-6 animate-fade-in">
             UNLEASH YOUR STRONGEST SELF
