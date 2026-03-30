@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[100svh] flex items-end md:items-center justify-center overflow-hidden pb-24 md:pb-0">
+    <section className="relative min-h-[100svh] flex items-end md:items-center justify-center overflow-hidden pb-12 md:pb-0">
       {heroImages.map((image, index) => (
         <div
           key={index}
